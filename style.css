@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial;
+}
+.cabecalho {
+    background-color: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+.menu {
+    background-color: #a5d6a7;
+    text-align: center;
+    padding: 10px;
+}
+.botao-menu {
+    background-color: #388e3c;
+    color: white;
+    padding: 10px;
+    border: none;
+    margin: 5px;
+}
+.conteudo {
+    background-color: white;
+    text-align: center;
+    padding: 30px;
+    margin: 20px;
+}
+.conteudo h1 {
+    color: #2e7d32;
+}
+.sobre {
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+}
+.sobre h2 {
+    color: #2e7d32;
+}
+.coleta {
+    background-color: #c8e6c9;
+    text-align: center;
+    padding: 25px;
+    margin: 20px;
+}
+.botao-coleta {
+    background-color: #2e7d32;
+    color: white;
+    padding: 12px;
+    border: none;
+}
+.rodape {
+    background-color: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
