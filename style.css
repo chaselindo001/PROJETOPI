@@ -61,3 +61,71 @@ body {
     margin-left: auto;
     width: 40%;
 }
+
+#botao-coleta {
+    background-color: #07513d;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.menu button.botao-menu {
+    background-color: #07513d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    margin: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s;
+}
+
+/* Muda a cor ao passar o mouse */
+.menu button.botao-menu:hover {
+    background-color: #177c59;
+    color: white;
+}
+
+#botao-coleta {
+    transition: background-color 0.2s;
+}
+
+#botao-coleta:hover {
+    background-color: #177c59;
+}
+
+.coleta {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.texto-coleta {
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+}
+
+.coleta .imagem-coleta {
+    width: 50%;
+    max-width: 650px;
+    height: auto;
+}
+
+/* No celular, a imagem fica abaixo do texto */
+@media (max-width: 720px) {
+    .coleta {
+        flex-direction: column;
+    }
+
+    .coleta .imagem-coleta {
+        width: 100%;
+    }
+}
