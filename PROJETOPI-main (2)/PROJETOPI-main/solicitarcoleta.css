@@ -1,0 +1,14 @@
+#botao-coleta {
+    background-color: #09533d;
+    color: white;
+    padding: 12px 20px;
+    border: 0;
+    border-radius: 8px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#botao-coleta:hover {
+    background-color: #073d2e;
+}
