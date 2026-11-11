@@ -1,10 +1,15 @@
-// Períodos de coleta por bairro (exemplo, trocar pelos dados reais da prefeitura)
+// Bairros de Matão-SP. O período de cada um ainda precisa ser confirmado com a prefeitura.
+const aDefinir = "a definir com a prefeitura";
 const periodos = {
-    "Centro": "Segundas-feiras, das 8h às 12h",
-    "Jardim das Flores": "Terças-feiras, das 8h às 12h",
-    "Vila Nova": "Quartas-feiras, das 13h às 17h",
-    "Parque Industrial": "Quintas-feiras, das 8h às 12h",
-    "Santa Cruz": "Sextas-feiras, das 13h às 17h"
+    "Centro": aDefinir,
+    "Jardim Pereira": aDefinir,
+    "Jardim Primavera": aDefinir,
+    "Nova Cidade": aDefinir,
+    "Nova Matão": aDefinir,
+    "Parque Industrial": aDefinir,
+    "Residencial Nova Aurora": aDefinir,
+    "Senhor Bom Jesus": aDefinir,
+    "Outro bairro": aDefinir
 };
 
 const botaoColeta = document.getElementById("botao-coleta");
@@ -78,7 +83,7 @@ formularioColeta.addEventListener("submit", (evento) => {
 // Consulta por bairro
 consultaBairro.addEventListener("change", () => {
     const bairro = consultaBairro.value;
-    resultadoBairro.textContent = bairro ? "Coleta em " + bairro + ": " + periodos[bairro] + "." : "";
+    resultadoBairro.textContent = bairro ? "Período de coleta em " + bairro + ": " + periodos[bairro] + "." : "";
 });
 
 // Consulta por protocolo
