@@ -63,7 +63,7 @@ body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: #f4f8f4;
 .resultado { margin: 8px 0 0; color: #07513d; font-weight: bold; min-height: 24px; }
 
 /* Modal de solicitação */
-.backfu { background: #f4f5ef; border: 0; border-radius: 15px; padding: 30px 40px; width: min(900px, 94vw); max-height: 92vh; color: #24352b; }
+.backfu { background: #f4f5ef; border: 0; border-radius: 15px; padding: 30px 40px; width: 90%; max-width: 900px; max-height: 92vh; color: #24352b; }
 .backfu::backdrop { background: rgba(7, 55, 40, .55); }
 .solicitar { color: #074736; }
 .backfu h1 { margin: 0 0 6px; }

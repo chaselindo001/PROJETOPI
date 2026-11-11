@@ -27,30 +27,12 @@ Object.keys(periodos).forEach((bairro) => {
 
 // Pedidos ficam salvos no navegador
 function lerPedidos() {
-    try {
-        return JSON.parse(localStorage.getItem("pedidos")) || [];
-    } catch (erro) {
-        return [];
-    }
+    return JSON.parse(localStorage.getItem("pedidos")) || [];
 }
 
 function salvarPedidos(lista) {
     localStorage.setItem("pedidos", JSON.stringify(lista));
 }
-
-// Máscara do telefone: (00) 00000-0000
-const campoTelefone = document.getElementById("campo-telefone");
-
-campoTelefone.addEventListener("input", () => {
-    let numeros = campoTelefone.value.replace(/\D/g, "").slice(0, 11);
-    if (numeros.length > 6) {
-        const inicio = numeros.length === 11 ? 7 : 6;
-        numeros = "(" + numeros.slice(0, 2) + ") " + numeros.slice(2, inicio) + "-" + numeros.slice(inicio);
-    } else if (numeros.length > 2) {
-        numeros = "(" + numeros.slice(0, 2) + ") " + numeros.slice(2);
-    }
-    campoTelefone.value = numeros;
-});
 
 // Modal
 botaoColeta.addEventListener("click", () => {
@@ -73,24 +55,24 @@ modalColeta.addEventListener("click", (evento) => {
 formularioColeta.addEventListener("submit", (evento) => {
     evento.preventDefault();
 
-    const dados = new FormData(formularioColeta);
     const pedidos = lerPedidos();
-    const protocolo = "EC-" + String(pedidos.length + 1).padStart(4, "0");
+    const protocolo = "EC-" + (pedidos.length + 1);
+    const bairro = formularioColeta.elements["bairro"].value;
 
     pedidos.push({
         protocolo: protocolo,
-        nome: dados.get("nome"),
-        bairro: dados.get("bairro"),
-        endereco: dados.get("endereco"),
-        residuo: dados.get("residuo"),
-        volume: dados.get("volume"),
+        nome: formularioColeta.elements["nome"].value,
+        bairro: bairro,
+        endereco: formularioColeta.elements["endereco"].value,
+        residuo: formularioColeta.elements["residuo"].value,
+        volume: formularioColeta.elements["volume"].value,
         data: new Date().toLocaleDateString("pt-BR"),
         status: "Recebida"
     });
     salvarPedidos(pedidos);
 
     formularioColeta.reset();
-    retornoColeta.textContent = "Solicitação enviada! Seu protocolo é " + protocolo + ". Previsão de coleta: " + periodos[dados.get("bairro")] + ".";
+    retornoColeta.textContent = "Solicitação enviada! Seu protocolo é " + protocolo + ". Previsão de coleta: " + periodos[bairro] + ".";
 });
 
 // Consulta por bairro
