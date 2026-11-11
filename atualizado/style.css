@@ -52,10 +52,6 @@ body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: #f4f8f4;
     .coleta { align-items: stretch; }
 }
 
-/* Aviso da versão */
-.aviso-versao { background: #fff3c4; color: #5b4a00; text-align: center; padding: 8px 16px; font-size: 14px; }
-.aviso-versao a { color: #5b4a00; font-weight: bold; }
-
 /* Consulta */
 .consulta { max-width: 1150px; margin: 24px auto; padding: 38px 40px; background: white; border-radius: 18px; border-left: 5px solid #168455; }
 .consulta h2 { margin: 8px 0 14px; font-size: 30px; color: #173b2b; }
@@ -83,7 +79,14 @@ body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: #f4f8f4;
 .como-funciona { background: #dff1e3; border-radius: 14px; padding: 8px 22px 18px; align-self: start; color: #074736; }
 .como-funciona ol { padding-left: 20px; margin: 0; }
 
+/* Logo na seção sobre */
+.logo-sobre { display: block; width: 100%; max-width: 420px; height: auto; margin-top: 18px; }
+
 @media (max-width: 760px) {
+    .menu { justify-content: center; gap: 2px; }
+    .menu a { padding: 8px 6px; font-size: 14px; }
+    .imagem-coleta { display: none; }
+    input, select, textarea { font-size: 16px; }
     .consulta { margin: 16px; padding: 28px 22px; }
     .consulta-colunas, .pagina-coleta, .formulario-coleta { grid-template-columns: 1fr; }
     .backfu { padding: 20px 18px; }

@@ -38,6 +38,20 @@ function salvarPedidos(lista) {
     localStorage.setItem("pedidos", JSON.stringify(lista));
 }
 
+// Máscara do telefone: (00) 00000-0000
+const campoTelefone = document.getElementById("campo-telefone");
+
+campoTelefone.addEventListener("input", () => {
+    let numeros = campoTelefone.value.replace(/\D/g, "").slice(0, 11);
+    if (numeros.length > 6) {
+        const inicio = numeros.length === 11 ? 7 : 6;
+        numeros = "(" + numeros.slice(0, 2) + ") " + numeros.slice(2, inicio) + "-" + numeros.slice(inicio);
+    } else if (numeros.length > 2) {
+        numeros = "(" + numeros.slice(0, 2) + ") " + numeros.slice(2);
+    }
+    campoTelefone.value = numeros;
+});
+
 // Modal
 botaoColeta.addEventListener("click", () => {
     retornoColeta.textContent = "";
