@@ -57,37 +57,37 @@
             <img src="caminhao.png" alt="Caminhão de coleta de galhos e folhas" class="imagem-coleta">
         </section>
     </main>
-    <dialog id="modal-coleta" aria-labelledby="titulo-coleta">
-    <button id="fechar-coleta" type="button">Fechar</button>
+    <dialog class="backfu" id="modal-coleta" aria-labelledby="titulo-coleta">
+        <button id="fechar-coleta" type="button">Fechar</button>
 
-    <div class="pagina-coleta">
+        <div class="pagina-coleta">
         <section>
-            <h2 id="titulo-coleta">Solicitar coleta</h2>
-            <p>Informe o endereço e o material para organizar a retirada.</p>
+            <h1 class="solicitar" id="titulo-coleta">Solicitar coleta</h1>
+            <h2> Informe o endereço e o material para organizar a retirada.<h2>
 
             <form class="formulario-coleta">
                 <label>
-                    Nome completo
+                    <h4>Nome completo</h4>
                     <input type="text" name="nome" autocomplete="name" required>
                 </label>
 
                 <label>
-                    Telefone
+                    <h4> Telefone </h4>
                     <input type="tel" name="telefone" autocomplete="tel" required>
                 </label>
 
                 <label>
-                    Bairro
+                    <h4> Bairro</h4>
                     <input type="text" name="bairro" required>
                 </label>
 
                 <label>
-                    Rua e número
+                    <h4> Rua e número</h4>
                     <input type="text" name="endereco" required>
                 </label>
 
                 <label>
-                    Tipo de resíduo
+                   <h4> Tipo de resíduo </h4> 
                     <select name="residuo" required>
                         <option value="">Selecione</option>
                         <option>Galhos e folhas</option>
@@ -119,7 +119,7 @@
                 </form>
             </section>
 
-            <aside class="como-funciona">
+            <aside class="solicitar">
                     <h2>Como funciona</h2>
                 <ol>
                     <li>Informe onde estão os resíduos.</li>

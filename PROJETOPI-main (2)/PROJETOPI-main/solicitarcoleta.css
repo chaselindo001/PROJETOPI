@@ -12,3 +12,25 @@
 #botao-coleta:hover {
     background-color: #073d2e;
 }
+.solicitar{
+    color: #074736
+}
+
+.backfu{
+    background-color: 	#F4F5EF;
+    border-radius: 15px;
+    padding: 30px 170px;
+    border-color: transparent;
+}
+
+
+.formulario-coleta{
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
