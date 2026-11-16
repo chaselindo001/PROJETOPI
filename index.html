@@ -90,67 +90,93 @@
                 <h2>Informe o endereço e o material para organizar a retirada.</h2>
 
                 <form class="formulario-coleta">
-                    <label>
-                        Nome completo
-                        <input type="text" name="nome" autocomplete="name" required>
-                    </label>
 
-                    <label>
-                        Telefone
-                        <input type="tel" name="telefone" autocomplete="tel" placeholder="11999999999" pattern="[0-9]{10,11}" title="Digite só os números, com DDD" required>
-                    </label>
 
-                    <label>
-                        Bairro
-                        <select name="bairro" id="campo-bairro" required>
-                            <option value="">Selecione</option>
-                        </select>
-                    </label>
+<p id="resultado"></p>
+                   
+<label class="campo-nome"> Nome completo <input type="text" name="nome" autocomplete="name" required> </label>
 
-                    <label>
-                        Rua e número
-                        <input type="text" name="endereco" autocomplete="street-address" required>
-                    </label>
+<label class="campo-telefone">Telefone<input type="tel" name="telefone" autocomplete="tel" placeholder="11999999999" pattern="[0-9]{10,11}" title="Digite só os números, com DDD" required></label>
 
-                    <label>
-                        Tipo de resíduo
-                        <select name="residuo" required>
-                            <option value="">Selecione</option>
-                            <option>Galhos e folhas</option>
-                            <option>Somente galhos</option>
-                            <option>Somente folhas</option>
-                        </select>
-                    </label>
+<div class="linha-cep">
+<label>CEP<input type="text" id="cep" placeholder="Digite seu CEP" maxlength="9" required></label>
+<button type="button" class="botao-cep" onclick="consultarCep()">Buscar CEP</button>
+</div>
 
-                    <label>
-                        Volume estimado
-                        <select name="volume" required>
-                            <option value="">Selecione</option>
-                            <option>Pequeno</option>
-                            <option>Médio</option>
-                            <option>Grande</option>
-                        </select>
-                    </label>
 
-                    <label class="linha-inteira">
-                        Observações
-                        <textarea name="observacoes" rows="3"></textarea>
-                    </label>
+<label>
+    Rua
+    <input type="text" name="endereco"
+           id="campo-endereco" required>
+</label>
 
-                    <button class="linha-inteira botao-enviar" type="submit">Enviar solicitação</button>
+<label>
+    Número
+    <input type="text" name="numero"
+           id="campo-numero"
+           placeholder="Ex: 123" required>
+</label>
+<label>Bairro<select name="bairro" id="campo-bairro" required><option value="">Selecione</option></select></label>
 
-                    <p class="retorno linha-inteira" role="status"></p>
-                </form>
-            </section>
+<label>Tipo de resíduo<select name="residuo" required>
+<option value="">Selecione</option>
+<option>Galhos e folhas</option>
+<option>Somente galhos</option>
+<option>Somente folhas</option>
+</select>
+</label>
 
-            <aside class="como-funciona">
-                <h2>Como funciona</h2>
-                <ol>
-                    <li>Informe onde estão os resíduos.</li>
-                    <li>Consulte o período de coleta.</li>
-                    <li>Acompanhe o andamento do pedido.</li>
-                </ol>
-            </aside>
+<label>Volume estimado<select name="volume" required>
+<option value="">Selecione</option>
+<option>Pequeno</option>
+<option>Médio</option>
+<option>Grande</option>
+</select>
+</label>
+
+<label class="linha-inteira">Observações<textarea name="observacoes" rows="3"></textarea></label>
+
+<button class="linha-inteira botao-enviar" type="submit">Enviar solicitação</button>
+
+<p class="retorno linha-inteira" role="status"></p>
+</form>
+</section>
+
+<aside class="como-funciona">
+    <h2>Como funciona?</h2>
+
+    <div class="etapa">
+        <span>1</span>
+        <div>
+            <h3>Informe o endereço</h3>
+            <p>Digite seu CEP e complete os dados
+               do local da coleta.</p>
+        </div>
+    </div>
+
+    <div class="etapa">
+        <span>2</span>
+        <div>
+            <h3>Solicite a coleta</h3>
+            <p>Selecione o tipo de resíduo e
+               informe a quantidade estimada.</p>
+        </div>
+    </div>
+
+    <div class="etapa">
+        <span>3</span>
+        <div>
+            <h3>Acompanhe o pedido</h3>
+            <p>Consulte o período de coleta e
+               acompanhe sua solicitação.</p>
+        </div>
+    </div>
+
+    <div class="mensagem-verde">
+        🌱
+        <p>Juntos por uma cidade mais limpa!</p>
+    </div>
+</aside>
         </div>
     </dialog>
 
