@@ -238,3 +238,117 @@ body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: #f4f8f4;
     margin: 8px 0 0;
     font-weight: bold;
 }
+
+/* Cartões Como usar — versão da equipe */
+.como-usar {
+    max-width: 1150px;
+    margin: 40px auto;
+    padding: 50px 35px;
+    background-color: #e8f5e9;
+    border-radius: 20px;
+    text-align: center;
+    border-left: 5px solid #168455;
+   
+}
+
+/* Título principal */
+.como-usar h2 {
+    font-size: 32px;
+    color: #07513d;
+    margin: 0 0 10px;
+}
+
+/* Subtítulo */
+.como-usar .subtitulo {
+    font-size: 16px;
+    color: #52685b;
+    margin: 0 0 35px;
+}
+
+/* Organização em três colunas */
+.como-usar .tres-colunas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* Estilo dos cartões */
+.como-usar .cartao {
+    background-color: #ffffff;
+    padding: 35px 25px;
+    border-radius: 16px;
+    border: 1px solid #d5e9db;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.como-usar .cartao:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(7, 81, 61, 0.16);
+}
+
+/* Número da etapa */
+.como-usar .numero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    margin: 0 auto 20px;
+
+    background-color: #07513d;
+    color: white;
+
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Ícones */
+.como-usar .icone {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+/* Título dos cartões */
+.como-usar .cartao h3 {
+    color: #173b2b;
+    font-size: 20px;
+    margin: 0 0 12px;
+}
+
+/* Descrição dos cartões */
+.como-usar .cartao p {
+    color: #617469;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Responsividade para celulares */
+@media (max-width: 768px) {
+
+    .como-usar {
+        margin: 20px 15px;
+        padding: 35px 20px;
+    }
+
+    .como-usar h2 {
+        font-size: 27px;
+    }
+
+    .como-usar .tres-colunas {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .como-usar .cartao {
+        padding: 30px 20px;
+    }
+}
+/* Ajustes de responsividade do formulário */
+@media(max-width:760px){.campo-nome,.campo-telefone{grid-column:auto}.linha-cep{flex-wrap:wrap}.linha-cep .botao-cep{width:100%}}

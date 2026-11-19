@@ -21,6 +21,7 @@
                 <a href="#coletas">Coletas</a>
                 <a href="#consulta">Consultar</a>
                 <a href="#contato">Contato</a>
+                <a href="admin.html" title="Painel demonstrativo sem login">Painel de gestão</a>
             </nav>
         </div>
     </header>
@@ -46,6 +47,58 @@
             <p>A organização das rotas também ajuda a prefeitura a economizar combustível e reduzir a circulação desnecessária de caminhões e tratores.</p>
             <img src="imagens/logo.png" alt="Logo do EcoColeta, sistema inteligente de gestão de resíduos de poda urbana" class="logo-sobre">
         </section>
+
+    <section class="como-usar">
+        <h2>Como usar 🍃</h2>
+
+        <p class="subtitulo">
+            Veja o passo a passo para utilizar o EcoColeta.
+        </p>
+
+        <div class="tres-colunas">
+
+            <!-- Cartão 1 -->
+            <div class="cartao">
+                <!-- <div class="numero">1</div> -->
+                <div class="icone">📅</div>
+
+             <h3>Consulte o cronograma</h3>
+
+                <p>
+                Selecione o seu bairro para verificar
+                as informações disponíveis.
+             </p>
+            </div>
+
+            <!-- Cartão 2 -->
+            <div class="cartao">
+                <!-- <div class="numero">2</div> -->
+             <div class="icone">📋</div>
+
+                <h3>Preencha a solicitação</h3>
+
+             <p>
+                Informe endereço, bairro e
+                material para retirada.
+                </p>
+            </div>
+
+            <!-- Cartão 3 -->
+            <div class="cartao">
+                <!-- <div class="numero">3</div> -->
+                <div class="icone">🔔</div>
+
+             <h3>Acompanhe o status</h3>
+
+                <p>
+                Use o número gerado para
+                consultar seu pedido.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
 
         <section class="coleta" id="coletas">
             <div class="texto-coleta">
@@ -92,7 +145,7 @@
                 <form class="formulario-coleta">
 
 
-<p id="resultado"></p>
+<p id="resultado" role="status" class="linha-inteira"></p>
                    
 <label class="campo-nome"> Nome completo <input type="text" name="nome" autocomplete="name" required> </label>
 

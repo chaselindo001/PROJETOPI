@@ -1,0 +1,525 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+/* Configura a tipografia, a cor dos textos e o fundo padrão de toda a página. */
+:root {
+    font-family:Inter,Arial,sans-serif;
+    color:#1d3330;
+    background:#f5f8f5;
+    font-synthesis:none
+}
+
+* {
+    box-sizing:border-box
+}
+
+body {
+    margin:0
+}
+
+button,input,select {
+    font:inherit
+}
+
+button {
+    cursor:pointer
+}
+
+a {
+    color:inherit
+}
+
+.layout {
+    display:grid;
+    grid-template-columns:245px minmax(0,1fr);
+    min-height:100vh
+}
+
+.sidebar {
+    background:#073f32;
+    color:#e8f5ed;
+    padding:28px 19px;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh
+}
+
+.brand {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    font-size:21px;
+    letter-spacing:-.7px;
+    padding:0 8px
+}
+
+.brand-symbol {
+    background:#1d8059;
+    border-radius:12px;
+    padding:8px;
+    font-size:25px
+}
+
+.brand small {
+    display:block;
+    font-size:11px;
+    font-weight:500;
+    color:#a3c7b6;
+    letter-spacing:0;
+    margin-top:3px
+}
+
+.sidebar-title,.eyebrow {
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1.3px
+}
+
+.sidebar-title {
+    color:#6fa78c;
+    margin:56px 13px 15px
+}
+
+.sidebar nav {
+    display:grid;
+    gap:7px
+}
+
+.nav-item {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    padding:14px;
+    border-radius:10px;
+    font-size:14px;
+    color:#c1d9ce
+}
+
+.nav-item:hover,.nav-item.selected {
+    background:#1d654d;
+    color:white
+}
+
+.sidebar-bottom {
+    margin-top:auto;
+    font-size:12px;
+    line-height:1.7;
+    color:#a6c8b9
+}
+
+.sidebar-bottom a {
+    color:#fff;
+    text-decoration:none;
+    font-weight:700
+}
+
+.demo-badge {
+    border:1px solid #538875;
+    padding:6px 9px;
+    border-radius:6px;
+    font-weight:800;
+    font-size:10px;
+    letter-spacing:.7px
+}
+
+.main {
+    padding:34px clamp(18px,3.5vw,54px);
+    min-width:0;
+    max-width:1700px;
+    width:100%;
+    margin:auto
+}
+
+.topbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    margin-bottom:26px
+}
+
+.eyebrow {
+    color:#168657
+}
+
+.topbar h1 {
+    margin:9px 0 8px;
+    font-size:clamp(25px,3vw,33px);
+    letter-spacing:-1px
+}
+
+.topbar p,.panel-heading p {
+    margin:0;
+    color:#778780;
+    font-size:13px
+}
+
+.top-actions {
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-size:12px;
+    color:#657970
+}
+
+.button {
+    border-radius:9px;
+    padding:10px 16px;
+    font-size:13px;
+    font-weight:700;
+    border:1px solid #dfe8e1;
+    white-space:nowrap
+}
+
+.subtle {
+    background:white;
+    color:#275444
+}
+
+.primary {
+    background:#08744b;
+    color:#fff;
+    border-color:#08744b
+}
+
+.button:hover {
+    filter:brightness(.95)
+}
+
+.notice {
+    background:#edf7f0;
+    border:1px solid #cce4d6;
+    color:#36644b;
+    padding:13px 17px;
+    border-radius:9px;
+    margin-bottom:22px;
+    font-size:12px;
+    line-height:1.5
+}
+
+.stats {
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:17px;
+    margin-bottom:24px
+}
+
+.stat {
+    background:#fff;
+    border:1px solid #e7ede8;
+    border-radius:13px;
+    padding:23px;
+    box-shadow:0 7px 20px #1c513009
+}
+
+.stat-icon {
+    width:39px;
+    height:39px;
+    display:grid;
+    place-items:center;
+    border-radius:11px;
+    background:#e4f5e9;
+    color:#08744b;
+    font-size:20px;
+    margin-bottom:18px
+}
+
+.stat-icon.amber {
+    background:#fff4db;
+    color:#bb7a0b
+}
+
+.stat-icon.blue {
+    background:#e9f2ff;
+    color:#397bb8
+}
+
+.stat-icon.green {
+    background:#e1f4e8
+}
+
+.stat span,.stat small {
+    display:block;
+    color:#778780;
+    font-size:12px
+}
+
+.stat strong {
+    display:block;
+    font-size:31px;
+    letter-spacing:-1px;
+    margin:9px 0
+}
+
+.stat small {
+    font-size:11px
+}
+
+.panel {
+    background:#fff;
+    border:1px solid #e7ede8;
+    border-radius:14px;
+    margin-bottom:24px;
+    box-shadow:0 7px 20px #1c513009;
+    overflow:hidden
+}
+
+.panel-heading {
+    padding:25px 27px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px
+}
+
+.panel-heading h2 {
+    font-size:19px;
+    letter-spacing:-.3px;
+    margin:7px 0 8px
+}
+
+.toolbar {
+    display:flex;
+    gap:8px
+}
+
+.toolbar input,.toolbar select,.dialog input,.dialog select {
+    border:1px solid #dfe9e2;
+    padding:11px;
+    border-radius:8px;
+    background:#fff;
+    min-width:0;
+    color:#34554b
+}
+
+.toolbar input {
+    width:235px
+}
+
+.table-scroll {
+    overflow-x:auto
+}
+
+table {
+    border-collapse:collapse;
+    width:100%;
+    font-size:12px;
+    text-align:left
+}
+
+thead {
+    background:#f8faf8;
+    color:#87968f;
+    font-size:10px;
+    letter-spacing:.5px
+}
+
+th,td {
+    padding:16px 20px;
+    border-top:1px solid #edf0ee;
+    vertical-align:middle
+}
+
+td small {
+    display:block;
+    margin-top:5px;
+    color:#84968d
+}
+
+td strong {
+    color:#166a4d
+}
+
+.pill {
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:999px;
+    font-size:11px;
+    font-weight:700;
+    white-space:nowrap;
+    background:#edf2f0;
+    color:#3d6251
+}
+
+.pill.recebida {
+    background:#fff4de;
+    color:#a6710c
+}
+
+.pill.agendada {
+    background:#eaf0ff;
+    color:#4b65b4
+}
+
+.pill.em-andamento {
+    background:#e6f4fc;
+    color:#35769f
+}
+
+.pill.concluida {
+    background:#e3f6e9;
+    color:#258047
+}
+
+.pill.cancelada {
+    background:#fceaea;
+    color:#b54f4f
+}
+
+.status-select {
+    max-width:135px;
+    border:1px solid #e3ebe5;
+    background:#fff;
+    border-radius:7px;
+    padding:8px;
+    font-size:11px
+}
+
+.panel-foot {
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    border-top:1px solid #e9efeb;
+    padding:16px 27px;
+    color:#84968d;
+    font-size:11px
+}
+
+.empty {
+    padding:35px;
+    text-align:center;
+    color:#7b8c84;
+    font-size:13px
+}
+
+.routes {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:16px;
+    padding:0 27px 26px
+}
+
+.route-card {
+    border:1px solid #e3ece5;
+    border-radius:12px;
+    padding:19px
+}
+
+.route-top {
+    display:flex;
+    justify-content:space-between;
+    gap:8px
+}
+
+.route-card h3 {
+    margin:0 0 7px;
+    font-size:15px
+}
+
+.route-meta {
+    color:#809187;
+    font-size:12px;
+    margin:5px 0
+}
+
+.route-orders {
+    margin-top:16px;
+    padding-top:13px;
+    border-top:1px solid #edf0ed
+}
+
+.route-orders strong {
+    font-size:12px
+}
+
+.route-orders ul {
+    margin:9px 0;
+    padding-left:20px;
+    color:#637a6d;
+    font-size:12px;
+    line-height:1.9
+}
+
+.route-actions {
+    display:flex;
+    gap:9px;
+    flex-wrap:wrap;
+    margin-top:15px
+}
+
+.route-actions button {
+    font-size:11px;
+    padding:9px
+}
+
+.route-empty {
+    color:#a07445;
+    font-size:12px
+}
+
+footer {
+    color:#8fa299;
+    text-align:center;
+    font-size:11px;
+    padding:15px
+}
+
+.dialog {
+    border:0;
+    border-radius:15px;
+    width:min(520px,calc(100vw - 28px));
+    padding:0;
+    box-shadow:0 20px 70px #001d1640
+}
+
+.dialog::backdrop {
+    background:#061a1388
+}
+
+.dialog-content {
+    padding:27px
+}
+
+.dialog-head {
+    display:flex;
+    justify-content:space-between;
+    align-items:center
+}
+
+.dialog h2 {
+    margin:0
+}
+
+.dialog p {
+    font-size:13px;
+    color:#71887a;
+    line-height:1.5
+}
+
+.dialog label {
+    display:grid;
+    gap:8px;
+    margin-top:16px;
+    font-size:12px;
+    font-weight:700
+}
+
+.field-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px
+}
+
+.dialog-actions {
+    display:flex;
+    justify-content:flex-end;
+    gap:9px;
+    margin-top:24px
+}
+
+.close {
+    border:0;
+    background:transparent;
+    font-size:30px;
+    color:#7c9082
+}

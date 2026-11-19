@@ -61,7 +61,11 @@ formularioColeta.addEventListener("submit", (evento) => {
     evento.preventDefault();
 
     const pedidos = lerPedidos();
-    const protocolo = "EC-" + (pedidos.length + 1);
+    const ultimoNumero = pedidos.reduce((maior, pedido) => {
+        const numero = Number(String(pedido.protocolo).replace("EC-", ""));
+        return Math.max(maior, numero || 0);
+    }, 0);
+    const protocolo = "EC-" + (ultimoNumero + 1);
     const bairro = formularioColeta.elements["bairro"].value;
 
     pedidos.push({
@@ -69,6 +73,8 @@ formularioColeta.addEventListener("submit", (evento) => {
         nome: formularioColeta.elements["nome"].value,
         bairro: bairro,
         endereco: formularioColeta.elements["endereco"].value,
+        numero: formularioColeta.elements["numero"].value,
+        telefone: formularioColeta.elements["telefone"].value,
         residuo: formularioColeta.elements["residuo"].value,
         volume: formularioColeta.elements["volume"].value,
         data: new Date().toLocaleDateString("pt-BR"),
@@ -77,13 +83,13 @@ formularioColeta.addEventListener("submit", (evento) => {
     salvarPedidos(pedidos);
 
     formularioColeta.reset();
-    retornoColeta.textContent = "Solicitação enviada! Seu protocolo é " + protocolo + ". Previsão de coleta: " + periodos[bairro] + ".";
+    retornoColeta.textContent = "Solicitação enviada! Seu protocolo é " + protocolo + ". Previsão de coleta: " + (periodos[bairro] || aDefinir) + ".";
 });
 
 // Consulta por bairro
 consultaBairro.addEventListener("change", () => {
     const bairro = consultaBairro.value;
-    resultadoBairro.textContent = bairro ? "Período de coleta em " + bairro + ": " + periodos[bairro] + "." : "";
+    resultadoBairro.textContent = bairro ? "Período de coleta em " + bairro + ": " + (periodos[bairro] || aDefinir) + "." : "";
 });
 
 // Consulta por protocolo

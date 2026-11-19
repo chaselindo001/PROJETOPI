@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Painel demonstrativo de gestão de pedidos e rotas EcoColeta">
+  <title>EcoColeta | Painel de gestão</title>
+  <link rel="icon" href="imagens/favicon.png">
+  <link rel="stylesheet" href="css/admin.css">
+  <script defer src="js/admin.js"></script>
+</head>
+<body>
+
+<div class="layout">
+<!-- Barra lateral de navegação  -->
+  <aside class="sidebar">
+    <a href="index.html" class="brand"><span class="brand-symbol">♻</span><span><strong>EcoColeta</strong><small>Central de gestão</small></span></a>
+    <div class="sidebar-title">MENU PRINCIPAL</div>
+<!-- Links de âncora levam às seções identificadas por id. O aria-label ajuda leitores de tela. -->
+    <nav aria-label="Navegação administrativa">
+      <a href="#visao-geral" class="nav-item selected">▦ <span>Visão geral</span></a>
+      <a href="#pedidos" class="nav-item">▤ <span>Solicitações</span></a>
+      <a href="#rotas" class="nav-item">♧ <span>Rotas de coleta</span></a>
+    </nav>
+<!-- Rodapé da barra lateral com aviso: os dados são locais  -->
+    <div class="sidebar-bottom">
+      <span class="demo-badge">AMBIENTE DEMONSTRATIVO</span>
+      <p>Dados salvos somente neste navegador. Sem controle de acesso.</p>
+      <a href="index.html">← Voltar ao site</a>
+    </div>
+  </aside>
+
+<!-- Conteúdo administrativo principal -->
+  <main class="main">
+<!-- Cabeçalho do painel -->
+    <header class="topbar">
+      <div><span class="eyebrow">PREFEITURA • MATÃO/SP</span>
+        <h1 id="visao-geral">Painel administrativo</h1>
+          <p>Acompanhe os pedidos e organize a coleta de resíduos de poda.</p>
+      </div>
+      <div class="top-actions">
+        <span id="data-atual">
+
+        </span><button id="atualizar" type="button" class="button subtle">↻ Atualizar</button>
+      </div>
+    </header>
+<!-- Aviso de limitações do protótipo. -->
+    <section class="notice" role="note">
+      <strong>Protótipo acadêmico:</strong>
+       Esta em fase de desenvolvimento e não possui controle de acesso. Os dados são salvos apenas neste navegador, sem backup ou sincronização.
+      </section>
+<!-- Indicadores de desempenho. O JavaScript atualiza os números nos elementos com id. -->
+    <section class="stats" aria-label="Indicadores">
+      <article class="stat">
+        <div class="stat-icon">▤</div>
+        <span>Total de solicitações</span>
+        <strong id="total">0</strong>
+        <small>Registros neste dispositivo</small>
+      </article><article class="stat">
+        <div class="stat-icon amber">◷</div>
+        <span>Aguardando coleta</span>
+        <strong id="pendentes">0</strong>
+        <small>Recebidas ou agendadas</small>
+      </article><article class="stat">
+        <div class="stat-icon blue">🚚</div>
+        <span>Em andamento</span>
+        <strong id="andamento">0</strong>
+        <small>Coletas iniciadas</small>
+      </article><article class="stat">
+        <div class="stat-icon green">✓</div>
+        <span>Concluídas</span>
+        <strong id="concluidas">0</strong>
+        <small>Pedidos finalizados</small>
+      </article>
+    </section>
+<!-- Tabela de pedidos -->
+    <section class="panel" id="pedidos">
+      <div class="panel-heading"><div>
+        <span class="eyebrow">ATENDIMENTOS</span>
+        <h2>Solicitações de coleta</h2>
+        <p>Consulte os pedidos e atualize o andamento.</p>
+      </div>
+      <div class="toolbar">
+        <input id="busca" type="search" aria-label="Buscar pedidos" placeholder="Buscar protocolo, nome ou bairro">
+        <select id="filtro-status" aria-label="Filtrar status">
+          <option value="">Todos os status</option>
+          <option>Recebida</option>
+          <option>Agendada</option>
+          <option>Em andamento</option>
+          <option>Concluída</option>
+          <option>Cancelada</option>
+        </select>
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>PROTOCOLO</th>
+            <th>SOLICITANTE / ENDEREÇO</th>
+            <th>BAIRRO</th>
+            <th>RESÍDUO</th>
+            <th>DATA</th>
+            <th>STATUS</th>
+            <th>AÇÃO</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-pedidos"></tbody>
+      </table>
+    </div>
+    <p class="empty" id="sem-pedidos" hidden>Nenhum pedido encontrado. Crie uma solicitação na página principal para começar.</p>
+    <div class="panel-foot">
+      <span id="contagem-pedidos">0 pedidos</span>
+      <span>Alterações atualizam a consulta do protocolo neste navegador.</span>
+    </div>
+  </section>
+<!-- Planejamento de rotas. -->
+    <section class="panel" id="rotas">
+      <div class="panel-heading">
+        <div>
+          <span class="eyebrow">PLANEJAMENTO</span>
+          <h2>Rotas de coleta</h2>
+          <p>Monte roteiros por bairro e acompanhe sua execução.</p>
+        </div>
+        <button class="button primary" id="nova-rota" type="button">+ Nova rota</button>
+      </div>
+      <div class="routes" id="lista-rotas"></div>
+      <p id="sem-rotas" class="empty" hidden>Nenhuma rota planejada. Use “Nova rota” para organizar as solicitações.</p>
+    </section>
+<!-- Informações finais e identificação do projeto. -->
+    <footer>EcoColeta • Projeto Interdisciplinar Fatec • Versão demonstrativa</footer>
+  </main>
+</div>
+<!-- Janela nativa dialog: contém formulário para criar uma rota por bairro e data. -->
+<dialog id="dialog-rota" class="dialog">
+  <form id="form-rota" class="dialog-content">
+    <div class="dialog-head">
+      <h2>Planejar uma rota</h2>
+      <button type="button" id="fechar-dialog" class="close" aria-label="Fechar">
+        ×</button>
+      </div>
+      <p>Selecione um bairro para agrupar os pedidos ainda não concluídos.</p>
+      <label>Nome da rota<input name="nome" required maxlength="80" placeholder="Ex.: Coleta Centro - manhã"></label>
+      <div class="field-grid">
+        <label>Bairro
+          <select name="bairro" id="rota-bairro" required>
+            <option value="">Selecione o bairro</option>
+          </select>
+        </label>
+        <label>Data prevista
+          <input name="data" type="date" required>
+        </label>
+      </div>
+      <label>Equipe / veículo (opcional)
+        <input name="equipe" maxlength="80" placeholder="Ex.: Caminhão 01">
+      </label>
+      <div class="dialog-actions">
+        <button type="button" class="button subtle" id="cancelar-rota">Cancelar</button>
+        <button type="submit" class="button primary">Salvar rota</button>
+      </div>
+    </form>
+  </dialog>
+<!-- Mensagem temporária de feedback. aria-live anuncia alterações aos leitores de tela. -->
+<div role="status" id="mensagem" class="toast" aria-live="polite"></div>
+</body></html>
